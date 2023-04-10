@@ -6,6 +6,7 @@ import { captureRef } from 'react-native-view-shot';
 import { useState, useRef } from 'react';
 import { StyleSheet, View, Platform } from 'react-native';
 import domtoimage from 'dom-to-image';
+import * as SplashScreen from 'expo-splash-screen';
 
 
 import ImageViewer from './components/ImageViewer';
@@ -18,6 +19,8 @@ import EmojiSticker from './components/EmojiSticker';
 
 
 const PlaceholderImage = require('./assets/images/background-image.png');
+SplashScreen.preventAutoHideAsync();
+setTimeout(SplashScreen.hideAsync, 5000);
 
 export default function App() {
 
@@ -118,7 +121,7 @@ export default function App() {
       <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>
         <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
       </EmojiPicker>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </GestureHandlerRootView>
 
   );
